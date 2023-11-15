@@ -109,7 +109,7 @@
                     <canvas id="myArea"></canvas>
                 </div>
                 <hr>
-                Berikut ini adalah data produk sebanyak {{$produk}}
+                Chart data dari produk dengan total produk {{$produk}}
                 <code>/js/demo/chart-area-demo.js</code> file.
             </div>
         </div>
