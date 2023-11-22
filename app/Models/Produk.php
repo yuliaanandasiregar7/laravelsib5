@@ -10,9 +10,11 @@ class Produk extends Model
     use HasFactory;
 
     protected $table = 'produk';
-    protected $fillabel = [
+    protected $fillable = [
         'kode','nama','harga_beli','harga_jual','stok','min_stok','jenis_produk_id'
     ];
+
+    public $timestamps = false;
 
     //relasi one to many ke table yang berhubungan denga produk
     public function jenis_produk(){
