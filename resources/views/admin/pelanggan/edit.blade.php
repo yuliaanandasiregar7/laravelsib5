@@ -9,7 +9,7 @@
 
 <form method="POST" action="{{route('pelanggan.update', $pl->id)}}" enctype="multipart/form-data">
     @csrf
-     
+    @method('PUT')
   <div class="form-group row">
     <label for="text" class="col-4 col-form-label">Kode</label> 
     <div class="col-8">
@@ -19,7 +19,7 @@
   <div class="form-group row">
     <label for="text1" class="col-4 col-form-label">Nama</label> 
     <div class="col-8">
-      <input id="text1" name="nama" type="text" class="form-control" value="$pl->nama">
+      <input id="text1" name="nama" type="text" class="form-control" value="{{$pl->nama}}">
     </div>
   </div>
   <div class="form-group row">
@@ -58,7 +58,7 @@
     <div class="col-8">
       <select id="select" name="kartu_id" class="custom-select" value="{{$pl->kartu}}">
         @foreach ($kartu as $k)
-        @php sel = ($k->id == $pl->kartu_id) ? 'selected' : ''; @endphp
+        @php $sel = ($k->id == $pl->kartu_id) ? 'selected' : ''; @endphp
         <option value="{{$k->id}}">{{$k->nama}}</option>
        @endforeach
       </select>
