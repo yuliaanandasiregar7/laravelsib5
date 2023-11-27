@@ -47,10 +47,13 @@ Route::get('/daftarnilai',function(){
 
 Route::get('/datamahasiswa',[LihatNilaiController::class, 'dataMahasiswa']);
 
+Route::group(['middleware' => ['auth', 'peran:yulia-admin-manager-pelanggan']], function(){
+
 Route::prefix('admin')->group(function(){
 Route::get('/dashboard',[DashboardController::class, 'index']);
 //contih pemanggilan secara satu persatu function menggunkan get, put,update, delete
 Route::get('/notfound',[PagenotController::class,'index']);
+
 //memanggil seluruh fungsi atau function
 Route::get('/kartu', [KartuController::class, 'index']);
 Route::get('/kartu/show/{id}', [KartuController::class, 'show']);
@@ -78,6 +81,7 @@ Route::get('/produk/export/', [ProdukController::class, 'exportProduk']);
 Route::post('/produk/import/', [ProdukController::class, 'importProduk']);
 
 Route::resource('/pelanggan', PelangganController::class);
+});
 });
 Auth::routes();
 

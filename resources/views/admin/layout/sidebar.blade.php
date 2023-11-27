@@ -70,7 +70,9 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Kumpulan data</h6>
+                        @if (Auth::user()->role == 'admin')
                         <a class="collapse-item" href="{{url('admin/produk')}}">Data produk</a>
+                        @endif
                         <a class="collapse-item" href="{{route('pelanggan.index')}}">Data Pelanggan</a>
                         <a class="collapse-item" href="{{url('admin/jenis_produk')}}">Data jenis produk</a>
                         <a class="collapse-item" href="{{url('admin/kartu')}}">Data Kartu</a>

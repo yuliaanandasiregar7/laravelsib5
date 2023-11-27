@@ -1,5 +1,6 @@
 @extends('admin.layout.appadmin')
 @section('content')
+@if(Auth::user()->role != 'yulia')
 
 
 <h1 class="h3 mb-2 text-gray-800">Tables</h1>
@@ -89,5 +90,7 @@
                 <!-- /.container-fluid -->
 
             </div>
-
+@else
+@include('admin.pagenot')
+@endif
 @endsection
